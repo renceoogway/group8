@@ -1,0 +1,107 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+
+nav button {
+    background: linear-gradient(90deg, #283048, #859398);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background: linear-gradient(90deg, #859398, #283048);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.web-members-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.member-card {
+    text-align: center;
+    width: 30%;
+    max-width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+member-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .web-members-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
