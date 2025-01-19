@@ -19,7 +19,7 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     gap: 15px;
 }
@@ -45,39 +45,73 @@ nav button:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-.web-members-container {
+main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     padding: 50px 20px;
+    min-height: calc(100vh - 100px);
+}
+
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 1200px;
     gap: 30px;
 }
 
-.member-card {
-    text-align: center;
-    width: 30%;
-    max-width: 250px;
+.image-container {
+    flex: 1.5;
+    position: relative;
+    overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.member-card img {
+.image-container img {
     width: 100%;
-    height: auto;
-    max-width: 200px;
-    max-height: 300px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+    filter: brightness(0.9) contrast(1.2);
 }
 
-member-card h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #fff;
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+
+.info-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-container h1 {
+    font-size: 42px;
+    background: linear-gradient(90deg, #ffd700, #ff5733);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
     font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.info-container p {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #ddd;
 }
 
 footer {
@@ -87,21 +121,41 @@ footer {
 }
 
 .qr-code {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     border-radius: 10px;
     border: 2px solid #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header, nav button, .image-container, .info-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
 @media screen and (max-width: 768px) {
-    .web-members-container {
+    .content-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .member-card {
-        width: 80%;
-        margin-bottom: 20px;
+    .image-container, .info-container {
+        width: 100%;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
     }
 }
